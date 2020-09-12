@@ -38,7 +38,7 @@ function form_tag_dynamic_select_field ( $scanned_tag, $replace ) {
     $form_data  = unserialize($row->form_value);
     foreach($form_data as $key=>$value){
       if($key == $data[2]){
-        $scanned_tag['raw_values'][] = $value;
+        $scanned_tag['raw_values'][] =  is_array($value) ? implode(",", $value): $value;
       }
     }
   }
