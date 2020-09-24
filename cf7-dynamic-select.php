@@ -33,7 +33,7 @@ function form_tag_dynamic_select_field ( $scanned_tag, $replace ) {
     return $scanned_tag;
   }
   $scanned_tag['raw_values'] = [];
-  $scanned_tag['raw_values'][] = "Select";
+  $scanned_tag['raw_values'][] = "";
   foreach ($results as $row) {
     $form_data  = unserialize($row->form_value);
     foreach($form_data as $key=>$value){
@@ -48,6 +48,6 @@ function form_tag_dynamic_select_field ( $scanned_tag, $replace ) {
   $scanned_tag['values'] = $scanned_tag['raw_values'];
   $scanned_tag['pipes'] = $pipes;
   $scanned_tag['labels'] = $scanned_tag['raw_values'];
-
+  $scanned_tag['labels'][0] = "Aucun projet";
   return $scanned_tag;
 }
